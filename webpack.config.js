@@ -8,12 +8,12 @@ var copy = require('quickly-copy-file');
 var del = require('del');
 
 // 开发环境
-var isDev = function() {
+var isDev = function () {
   return process.env.NODE_ENV.trim() === 'development';
 };
 
 // 生产环境
-var isProd = function() {
+var isProd = function () {
   return process.env.NODE_ENV.trim() === 'production';
 };
 
@@ -28,11 +28,11 @@ module.exports = {
     vendor: [
       'react',
       'react-dom',
-      'react-router',
-      'react-redux',
-      'redux',
-      'redux-thunk',
-      'nprogress'
+      //      'react-router',
+      //    'react-redux',
+      //      'redux',
+      //      'redux-thunk',
+      //      'nprogress'
     ]
   },
   output: {
@@ -42,20 +42,34 @@ module.exports = {
     publicPath: isProd() ? './dist/' : '/dist/'
   },
   module: {
-    loaders: [{
-      test: /\.scss$/,
-      exclude: /node_modules/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader', {
-        publicPath: '.'
-      })
-    }, {
-      test: /\.(png|jpg)$/,
-      loader: 'file-loader?name=/[name].[hash:8].[ext]'
-    }, {
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
-    }]
+    loaders: [
+      //   {
+      //   test: /\.scss$/,
+      //   exclude: /node_modules/,
+      //   loader: ExtractTextPlugin.extract('style-loader', 'css-loader', {
+      //     publicPath: '.'
+      //   })
+      // }
+      {
+        test: /\.(css|less)$/,
+        loader: ExtractTextPlugin.extract('style', '!css!less', {
+          publicPath: '.'
+        })
+      }
+      ,
+      {
+        test: /\.html$/,
+        loader: 'html-loader'
+      },
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader?limit=8192&name=/[name].[hash:8].[ext]'
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
+      }]
   },
   plugins: getPlugins()
 };
@@ -67,13 +81,13 @@ function copyAndDelFiles() {
   // 复制文件
   if (isDev()) {
     copyFile = 'src/html/index_dev.html';
-  } 
+  }
 
   if (isProd()) {
     copyFile = 'src/html/index.html';
   }
 
-  copy(copyFile, 'index.html', function(error) {
+  copy(copyFile, 'index.html', function (error) {
     if (error) {
       return console.error(error);
     }
@@ -88,7 +102,7 @@ function copyAndDelFiles() {
 function getPlugins() {
   var plugins = [
     new webpack.DefinePlugin({
-      __DEV__ : isDev(),
+      __DEV__: isDev(),
       __PROD__: isProd(),
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV.trim())
     }),
@@ -114,7 +128,7 @@ function getPlugins() {
         }
       }),
       new HtmlWebpackPlugin({
-        title: 'hello world —  写给未来的自己',
+        title: 'hello world',
         filename: '../index.html',
         template: './src/html/index.html'
       }),
