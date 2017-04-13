@@ -55,8 +55,7 @@ module.exports = {
         loader: ExtractTextPlugin.extract('style', '!css!less', {
           publicPath: '.'
         })
-      }
-      ,
+      },
       {
         test: /\.html$/,
         loader: 'html-loader'
