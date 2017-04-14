@@ -1,7 +1,10 @@
+
+@name: fade-in-down;
+
 *{
   padding:0;
   margin: 0;
-  font-family:Verdana , Arial,Raleway;
+  font-family: "sans-serif","Arial","Helvetica Neue", "Helvetica","黑体";
 }
 
 .page{
@@ -21,19 +24,23 @@
 body{
   width:100%;
   background: url("../img/bg.png");
+  font-size:14px; 
 }
-
+.animated{
+    .animation(fade-in-down,0.6s,ease-in-out,0.3s,both);
+}
 .page{
    margin: 0 auto;
    padding-top: 100px; 
    text-align: center;
    h2{
-     font-size: 24px;
+     font-size: 28px;
      color: #222;
      margin-top:15px; 
    }
    p{
-     margin-top:15px; 
+     margin-top:15px;
+     font-size: 18px; 
      color: darkgrey;
    }
    img{
@@ -94,12 +101,156 @@ body{
             transform: translate3d(0, -8px, 0);
           }
         }
-        svg{
+        .icon{
           width: 25px;
           height: 25px;
+        }
+        .facebook{
+          width: 26px;
+        }
+        .wechat{
+           width: 23px;
+        }
+        .in{
+          width: 21px;
         }
       }
     }
 
 
+.nav{
+  margin-top:30px; 
+  
+  .list{
+    .item{
+      padding:0 10px; 
+      list-style: none;
+      display: inline;
+      a{
+        text-decoration: none;
+        color: #4b0082;
+        opacity: 0.8;
+        font-size:1.1rem; 
+        &:hover{
+          color: #222;
+          opacity: 1;
+          cursor:pointer;
+        }
+      }
+    }
+  }
+}
 
+.footer{
+      border-top: 1px solid #ededed;
+      padding: 50px 0;
+      margin: 60px 0 0 0;
+      font-size: 0.5rem;
+      color: #aaa;
+      font-weight: 300;
+      text-align: center;
+      position: relative;
+      &::before{
+          display: block;
+          content: " ";
+          width: 7px;
+          height: 7px;
+          border: #ededed 2px solid;
+          position: absolute;
+          top: -5px;
+          left: 50%;
+          margin-left: -5px;
+          background: #FFF;
+          box-shadow: #FFF 0 0 0 5px;
+          border-radius: 50%;
+      }
+      .rss{
+        width: 25px;
+        height: 25px;
+        .icon{
+          width: 15px;
+          height: 15px;
+          fill: #aaa;
+          padding-left: 5px;
+        }
+        
+      }
+    .extra{
+      font-size:0.9rem;
+      color: #222;
+    }
+}
+
+.keyframes(@fx,@fy,@tx,@ty,@name){   //声明一个动画函数，只需要写一个函数就可以到处调用了
+  @keyframes @name
+  {
+    from {
+       transform:translate(@fx,@fy);
+       opacity:0;
+       filter:alpha(opacity=0);
+    }
+    to {
+      transform:translate(@tx,@ty);
+      opacity:1;
+      filter:alpha(opacity=100);
+    }
+  }
+  @-moz-keyframes @name /* Firefox */
+  {
+    from {
+      -moz-transform:translate(@fx,@fy);
+      opacity:0;
+      filter:alpha(opacity=0);
+    }
+    to {
+      -moz-transform:translate(@tx,@ty);
+      opacity:1;
+      filter:alpha(opacity=100);
+    }
+  }
+
+  @-webkit-keyframes @name /* Safari 和 Chrome */
+  {
+    from {
+      -webkit-transform:translate(@fx,@fy);
+      opacity:0;
+      filter:alpha(opacity=0);
+    }
+    to {
+      -webkit-transform:translate(@tx,@ty);
+      opacity:1;
+      filter:alpha(opacity=100);
+    }
+  }
+
+  @-o-keyframes @name /* Opera */
+  {
+    from {
+      -o-transform:translate(@fx,@fy);
+      opacity:0;
+      filter:alpha(opacity=0);
+    }
+    to {
+      -o-transform:translate(@tx,@ty);
+      opacity:1;
+      filter:alpha(opacity=100);
+    }
+  }
+}
+
+.animation(@animation-name,     //声明一个过渡函数，只需要声明一个函数就可以到处调用了
+@animation-duration,
+@animation-timing-function,
+@animation-delay,
+@animation-fill-mode)
+{
+  animation: @arguments;
+  /* Firefox: */
+  -moz-animation: @arguments;
+  /* Safari 和 Chrome: */
+  -webkit-animation: @arguments;
+  /* Opera: */
+  -o-animation: @arguments;
+}
+
+.keyframes(0,-30px,0,0,@name);

@@ -28,11 +28,11 @@ module.exports = {
     vendor: [
       'react',
       'react-dom',
-      //      'react-router',
+      'react-router',
       //    'react-redux',
       //      'redux',
       //      'redux-thunk',
-      //      'nprogress'
+            // 'nprogress'
     ]
   },
   output: {
