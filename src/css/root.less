@@ -1,22 +1,20 @@
 
 @name: fade-in-down;
 
-*{
-  padding:0;
-  margin: 0;
-  font-family: "sans-serif","Arial","Helvetica Neue", "Helvetica","黑体";
-}
-
 .page{
     
-    @media screen and (max-width: 620px){
+    @media screen and (max-width: 600px){
       width: 100%;
+      padding-top: 80px; 
+
     }
-    @media screen and (max-width: 1024px) and (min-width: 620px){
+    @media screen and (max-width: 1024px) and (min-width: 600px){
       width: 75%;
+      padding-top: 90px; 
     }
     @media screen and (min-width: 1024px){
       width: 60%;
+      padding-top: 100px; 
     }
    
 }
@@ -24,14 +22,14 @@
 body{
   width:100%;
   background: url("../img/bg.png");
-  font-size:14px; 
+  font-size:14px;
+  font-family: "黑体","sans-serif","Arial","Helvetica Neue", "Helvetica"; 
 }
 .animated{
     .animation(fade-in-down,0.6s,ease-in-out,0.3s,both);
 }
 .page{
    margin: 0 auto;
-   padding-top: 100px; 
    text-align: center;
    h2{
      font-size: 28px;
@@ -107,9 +105,10 @@ body{
         }
         .facebook{
           width: 26px;
+          width: 26px;
         }
         .wechat{
-           width: 23px;
+           width: 21px;
         }
         .in{
           width: 21px;
@@ -145,7 +144,7 @@ body{
       border-top: 1px solid #ededed;
       padding: 50px 0;
       margin: 60px 0 0 0;
-      font-size: 0.5rem;
+      font-size: 0.7rem;
       color: #aaa;
       font-weight: 300;
       text-align: center;

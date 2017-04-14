@@ -10,7 +10,7 @@ class Footer extends Component{
         return (
             <footer className="footer">
                     上善若水 © 2017 
-                    <a className="rss" href="/" target="_blank">
+                    <a className="rss" target="_blank">
                         <svg t="1492138979509" className="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1836" xmlnsXlink="http://www.w3.org/1999/xlink" width="200" height="200">
                         <defs>
                             <style type="text/css"></style>

@@ -11,16 +11,19 @@ class Nav extends Component{
             <nav className="nav animated">
                 <ul className="list">
                     <li className="item">
+                        <Link to="/">主页</Link>
+                    </li>
+                    <li className="item">
                         <Link to="blog">博客</Link>
                     </li>
                     <li className="item">
-                        <Link to="blog">案例</Link>
+                        <Link to="project">案例</Link>
                     </li>
                     <li className="item">
-                        <Link to="blog">简历</Link>
+                        <Link to="resume">简历</Link>
                     </li>
                     <li className="item">
-                        <Link to="blog">关于</Link>
+                        <Link to="about">关于</Link>
                     </li>
                 </ul>
             </nav>

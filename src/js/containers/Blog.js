@@ -1,5 +1,6 @@
 import React ,{Component} from "react";
-
+import FixSlide from "../components/FixSlide"
+import '../../css/blog.less';
 class Blog extends Component{
 
     constructor(props){
@@ -9,7 +10,12 @@ class Blog extends Component{
     render(){
 
         return (
-            <div>Blog -- 开发中</div>
+            <div className="flex row-flex">
+                <FixSlide />
+                <div className="contence" >
+
+                </div>
+            </div>
         )
 
     }
