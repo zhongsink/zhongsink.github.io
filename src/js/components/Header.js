@@ -14,7 +14,7 @@ class Header extends Component{
                     <a className="link" href="/">
                         <img className="selfie" src={require("../../img/head.png")} />
                     </a>
-                    <h2>上善若水</h2>
+                    <h2 style={ {fontFamily:"黑体"} }>上善若水</h2>
                     <p>人生苦短 码不停蹄</p>
                     <div className="social-link">
                         <a href="/" data-title="facebook">
