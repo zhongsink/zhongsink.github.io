@@ -13,7 +13,7 @@ class Blog extends Component{
             <div className="flex row-flex">
                 <FixSlide />
                 <div className="contence" >
-
+                    {this.props.children}
                 </div>
             </div>
         )

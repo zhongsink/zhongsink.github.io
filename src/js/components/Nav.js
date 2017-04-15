@@ -1,16 +1,40 @@
 import React,{Component} from "react";
 import { Link } from "react-router"; 
 
+class Item extends Component{
+    constructor(props){
+        super(props);
+    }
+
+    render(){
+        let item=this.props.item;
+        return (
+            <li className="item">
+                <Link to={item.pathname}>{item.title}</Link>
+            </li>
+        )
+    }
+
+}
+
 class Nav extends Component{
 
     constructor(props){
         super(props);
+        
     }
     render(){
         return (
             <nav className="nav animated">
-                <ul className="list">
-                    <li className="item">
+                <div ref="command" className="commond"></div>
+                <ul ref="list" className="list">
+                    {
+                        this.props.items.map((value, index) => 
+                            <Item  item={value} key={index}/>
+                        )
+                       
+                    }
+                    {/*<li className="item">
                         <Link to="/">主页</Link>
                     </li>
                     <li className="item">
@@ -24,7 +48,7 @@ class Nav extends Component{
                     </li>
                     <li className="item">
                         <Link to="about">关于</Link>
-                    </li>
+                    </li>*/}
                 </ul>
             </nav>
         )

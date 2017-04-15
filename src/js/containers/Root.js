@@ -45,11 +45,27 @@ const AboutMe = (location, cb) => {
     cb(null, require('../containers/AboutMe').default);
   }, 'about');
 };
+const CellView=(location, cb) => {
+  document.title = "Hello World";
+  require.ensure([], require => {
+    cb(null, require('../containers/CellView').default);
+  }, 'cellView');
+};
+
+const post=(location, cb) => {
+  document.title = "Hello World";
+  require.ensure([], require => {
+    cb(null, require('../containers/Post').default);
+  }, 'post');
+};
 
 const routes = (
   <Route path="/" component={Container}>
     <IndexRoute component={App} />
-    <Route path="blog" getComponent={Blog} />
+    <Route path="blog" getComponent={Blog} >
+        <IndexRoute getComponent={CellView} />
+        <Route path="post/:id" getComponent={post} />
+    </Route>
     <Route path="project" getComponent={Project} />
     <Route path="resume" getComponent={Resume} />
     <Route path="about" getComponent={AboutMe} />

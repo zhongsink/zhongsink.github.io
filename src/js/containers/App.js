@@ -2,8 +2,8 @@ import React from 'react';
 import Header from "../components/Header";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import { CONFIG } from "../constants/Config";
 // import { connect } from 'react-redux';
-
 
 class root extends React.Component{
 
@@ -15,7 +15,7 @@ class root extends React.Component{
         return (
             <div className="page">
                 <Header />
-                <Nav />
+                <Nav items={CONFIG.HOME}/>
                 <Footer />
             </div>
         )
