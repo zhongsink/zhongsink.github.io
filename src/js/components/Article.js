@@ -32,7 +32,7 @@ export default class Article extends Component {
           </div>
         </div>
         <div className="article">
-          
+          //评论组件
         </div>
       </div>
     );

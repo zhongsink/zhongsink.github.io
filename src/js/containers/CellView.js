@@ -5,7 +5,7 @@ let array=[
     {
         title: '使用 npm 和 bower 发布插件',
         created_at: '2016-08-10T08:54:33Z',
-        hash: "sdsd34"
+        hash: "sds34"
     },
     {
         title: '使用 npm 和 bower 发布插件',

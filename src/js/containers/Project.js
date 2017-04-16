@@ -1,5 +1,5 @@
 import React ,{Component} from "react";
-
+import FixSlide from "../components/FixSlide"
 class Project extends Component{
 
     constructor(props){
@@ -9,12 +9,15 @@ class Project extends Component{
     render(){
 
         return (
-            <div>Project -- 开发中</div>
+            <div className="flex row-flex">
+                <FixSlide />
+                <div className="contence" >
+                    
+                </div>
+            </div>
         )
 
     }
 
 }
-
-
 export default Project;

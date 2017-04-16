@@ -1,12 +1,14 @@
 import React ,{Component} from 'react';
-import { Router, Route, IndexRoute, useRouterHistory ,browserHistory} from 'react-router';
+import { Router, Route, IndexRoute, useRouterHistory ,browserHistory,Redirect} from 'react-router';
 import { createHashHistory ,createBrowserHistory} from 'history'; 
 
-console.log(createBrowserHistory);
-const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
+//const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 import App from '../containers/App.js';
 
-import '../../css/reset.less'
+import '../../css/reset.less';
+import '../../css/blog.less';
+import "../../css/arctice.less"
+
 class Container extends Component{
     
     constructor(props){
@@ -69,12 +71,13 @@ const routes = (
     <Route path="project" getComponent={Project} />
     <Route path="resume" getComponent={Resume} />
     <Route path="about" getComponent={AboutMe} />
+    <Redirect from='*' to='/'  />
   </Route>
 );
 
 export default class Root extends Component {
   render() {
-    return <Router history={appHistory} routes={routes} />
+    return <Router history={browserHistory} routes={routes} />
   }
 };
 
