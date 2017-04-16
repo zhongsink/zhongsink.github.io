@@ -2,7 +2,7 @@ import React ,{Component} from 'react';
 import { Router, Route, IndexRoute, useRouterHistory ,browserHistory,Redirect} from 'react-router';
 import { createHashHistory ,createBrowserHistory} from 'history'; 
 
-//const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
+const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 import App from '../containers/App.js';
 
 import '../../css/reset.less';
@@ -77,7 +77,7 @@ const routes = (
 
 export default class Root extends Component {
   render() {
-    return <Router history={browserHistory} routes={routes} />
+    return <Router history={appHistory} routes={routes} />
   }
 };
 
