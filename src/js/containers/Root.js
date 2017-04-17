@@ -7,7 +7,8 @@ import App from '../containers/App.js';
 
 import '../../css/reset.less';
 import '../../css/blog.less';
-import "../../css/arctice.less"
+import "../../css/arctice.less";
+import "../../css/project.less"
 
 class Container extends Component{
     

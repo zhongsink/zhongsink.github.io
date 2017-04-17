@@ -61,8 +61,12 @@ module.exports = {
         loader: 'html-loader'
       },
       {
-        test: /\.(png|jpg)$/,
-        loader: 'url-loader?limit=8192&name=/[name].[hash:8].[ext]'
+        test: /\.(png|jpg|svg)$/,
+        loader: 'url-loader?limit=5120&name=/[name].[hash:8].[ext]'
+      },
+      {
+        test: /\.(eot|ttf|woff)$/,
+        loader: 'file-loader?limit=5120&name=/[name].[hash:8].[ext]'
       },
       {
         test: /\.js$/,

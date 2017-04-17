@@ -1,7 +1,7 @@
 /**
  * params： props={
  *          url :string , // project's home
- *          UrlImg: string, // img url
+ *          ImgUrl: string, // img url
  *          title :string , //project title
  *          githubURL, //  open sourse url
  *          tags: string [ //label
@@ -11,11 +11,9 @@
  *      }
  * 
  */
+import React, {Component} from "react";
 
-
-import React, {Component} from "React";
-
-class Tag extends Component{
+class TagAdvancd extends Component{
     constructor(props){
         super(props);
     }
@@ -23,14 +21,14 @@ class Tag extends Component{
     render(){
 
         return (
-            <span class="tag">
-                <a href={"#"+this.props.tag}>{this.props.tag}</a>
+            <span className="tag">
+                <a>{this.props.tag}</a>
             </span>
         )
     }
 }
 
-export default class Figure extends Component{
+export default class FigureCon extends Component{
 
     constructor(props){
         super(props);
@@ -40,26 +38,24 @@ export default class Figure extends Component{
 
         return (
             <div className="project_inner">
-                <a href={this.props.url}>
-                    <img className="project_img" src={require(this.props.ImgUrl)}/>
-                </a>
+                <div className="img flex"  >
+                    <img className="project_img" src={this.props.ImgUrl}/>
+                </div>
                 <a href={this.props.url}>
                     <h3 className="project_title">{this.props.title}</h3>
                 </a>
                 <div className="project_tag">
                     {
                         this.props.tags.map((item,index)=>
-                            <Tag tag={item} key={index} />
+                            <TagAdvancd tag={item} key={index} />
                         )
                     }
                 </div>
-                <div className="project_footer">
+                <div className="project_footer clearfix">
                     <a href={this.props.githubURL}>源代码</a>
                     <span>{this.props.createAt}</span>
                 </div>
             </div>
         )
     }
-
-
 }

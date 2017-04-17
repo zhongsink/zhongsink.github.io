@@ -14,7 +14,7 @@ class FixSlide extends Component{
         return (
 
             <div className="fixSlide">
-                 <div className="page container">
+                 <div className="page fixContainer">
                     <Header />
                     <Nav items={CONFIG.BLOG}/>
                  </div>
