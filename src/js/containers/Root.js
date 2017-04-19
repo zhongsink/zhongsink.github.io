@@ -1,6 +1,7 @@
 import React ,{Component} from 'react';
 import { Router, Route, IndexRoute, useRouterHistory ,browserHistory,Redirect} from 'react-router';
 import { createHashHistory ,createBrowserHistory} from 'history'; 
+import NProgress from 'nprogress';
 
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 import App from '../containers/App.js';
@@ -8,7 +9,8 @@ import App from '../containers/App.js';
 import '../../css/reset.less';
 import '../../css/blog.less';
 import "../../css/arctice.less";
-import "../../css/project.less"
+import "../../css/project.less";
+import "../../css/nprogress.less"
 
 class Container extends Component{
     
@@ -32,24 +34,28 @@ const Blog = (location, cb) => {
 };
 const Project = (location, cb) => {
   document.title = "Hello World";
+  NProgress.start();
   require.ensure([], require => {
     cb(null, require('../containers/Project').default);
   }, 'project');
 };
 const Resume = (location, cb) => {
   document.title = "Hello World";
+  NProgress.start();
   require.ensure([], require => {
     cb(null, require('../containers/Resume').default);
   }, 'resume');
 };
 const AboutMe = (location, cb) => {
   document.title = "Hello World";
+  NProgress.start();
   require.ensure([], require => {
     cb(null, require('../containers/AboutMe').default);
   }, 'about');
 };
 const CellView=(location, cb) => {
   document.title = "Hello World";
+  NProgress.start();
   require.ensure([], require => {
     cb(null, require('../containers/CellView').default);
   }, 'cellView');
@@ -57,6 +63,7 @@ const CellView=(location, cb) => {
 
 const post=(location, cb) => {
   document.title = "Hello World";
+  NProgress.start();
   require.ensure([], require => {
     cb(null, require('../containers/Post').default);
   }, 'post');

@@ -1,5 +1,6 @@
 import React ,{Component} from "react";
 import FixSlide from "../components/FixSlide"
+import NProgress from 'nprogress';
 
 import "../../css/about.less";
 class AboutMe extends Component{
@@ -7,7 +8,9 @@ class AboutMe extends Component{
     constructor(props){
         super(props);
     }
-
+    componentDidMount(){
+        NProgress.done();
+    }
     render(){
 
         return (

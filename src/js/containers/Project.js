@@ -1,7 +1,7 @@
 import React ,{Component} from "react";
 import FixSlide from "../components/FixSlide"
 import FigureCon from "../components/FigureCon";
-
+import NProgress from 'nprogress';
 const items=[
     {   url: "https:\\github.com",
         ImgUrl: "https://agusmakmun.github.io/static/projects/placeholder.jpg",
@@ -31,7 +31,9 @@ class Project extends Component{
     constructor(props){
         super(props);
     }
-
+    componentDidMount(){
+        NProgress.done();
+    }
     render(){
 
         return (

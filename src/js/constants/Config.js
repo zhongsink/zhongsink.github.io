@@ -22,6 +22,10 @@ export const CONFIG =  {
             pathname: "/"
         },
         {
+            title: "博客",
+            pathname: "blog"
+        },
+        {
             title: "案例",
             pathname: "project"
         },
@@ -32,6 +36,8 @@ export const CONFIG =  {
             title: "关于",
             pathname: "about"
         }
-    ]
-
+    ],
+    Request:{
+        url:"http://localhost:3000/getItems"
+    }
 }

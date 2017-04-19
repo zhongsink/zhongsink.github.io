@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import CellView from "../components/CellView";
-
+import NProgress from 'nprogress';
 let array=[
     {
         title: '使用 npm 和 bower 发布插件',
@@ -73,6 +73,9 @@ export default class View extends Component{
         super();
     }
 
+    componentDidMount(){
+        NProgress.done();
+    }
     render(){
 
         return (

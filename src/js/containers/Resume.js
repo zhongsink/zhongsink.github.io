@@ -1,6 +1,6 @@
 import React ,{Component} from "react";
 import FixSlide from "../components/FixSlide"
-
+import NProgress from 'nprogress';
 import "../../css/style.less";
 import "../../css/fontello.less";
 
@@ -9,7 +9,9 @@ class Resume extends Component{
     constructor(props){
         super(props);
     }
-
+    componentDidMount(){
+        NProgress.done();
+    }
     render(){
 
         return (
