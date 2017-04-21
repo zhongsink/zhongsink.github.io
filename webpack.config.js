@@ -29,10 +29,10 @@ module.exports = {
       'react',
       'react-dom',
       'react-router',
-      //    'react-redux',
-      //      'redux',
-      //      'redux-thunk',
-            // 'nprogress'
+      'react-redux',
+      'redux',
+      'redux-thunk',
+      'nprogress'
     ]
   },
   output: {
@@ -50,6 +50,9 @@ module.exports = {
       //     publicPath: '.'
       //   })
       // }
+
+      { test: /\.json$/, loader: "json-loader" }
+      ,
       {
         test: /\.(css|less)$/,
         loader: ExtractTextPlugin.extract('style', '!css!less', {
