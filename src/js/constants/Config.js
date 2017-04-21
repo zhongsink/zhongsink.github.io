@@ -38,6 +38,6 @@ export const CONFIG =  {
         }
     ],
     Request:{
-        url:"http://localhost:3000/getItems"
+        url:"http://120.25.221.52/getItems"
     }
 }

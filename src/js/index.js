@@ -1,17 +1,17 @@
 import React from 'react';
 import { render } from 'react-dom';
-// import { Provider } from 'react-redux';
-// import { createStore } from 'redux';
-// import configureStore from './store/configureStore.js';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import configureStore from './store/configureStore.js';
 import Root from './containers/Root';
 import '../css/root.less';
 
-// let store = configureStore();
+let store = configureStore();
 
 render(
- // <Provider store={store}>
+ <Provider store={store}>
     <Root />
-//  </Provider>
+ </Provider>
   ,
   document.getElementById('container')
 );

@@ -2,7 +2,7 @@
 export const REQUEST_ISSUES = 'REQUEST_ISSUES';
 
 // 接收issues
-export const RECEIVE_ISSUES = 'RECEIVE_ISSUES';
+export const RECEIVE_ITEMS = 'RECEIVE_ITEMS';
 
 // 请求文章
 export const REQUEST_ARTICLE = 'REQUEST_ARTICLE';

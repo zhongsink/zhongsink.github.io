@@ -3,27 +3,13 @@ import FixSlide from "../components/FixSlide"
 import FigureCon from "../components/FigureCon";
 import NProgress from 'nprogress';
 const items=[
-    {   url: "https:\\github.com",
-        ImgUrl: "https://agusmakmun.github.io/static/projects/placeholder.jpg",
+    {   url: "https://github.com/zhongsink",
+        ImgUrl: "http://localhost:3000/images/project.png",
         title: "个人主页",
-        githubURL:"https:\\github.com",
+        githubURL:"https://github.com/zhongsink",
         tags:["blog","rem"],
-        createAt:"4 2016"
+        createAt:"2017-4-15"
     },
-    {   url: "https:\\github.com",
-        ImgUrl: "https://agusmakmun.github.io/static/projects/placeholder.jpg",
-        title: "个人主页",
-        githubURL:"https:\\github.com",
-        tags:["blog","rem"],
-        createAt:"4 2016"
-    },
-    {   url: "https:\\github.com",
-        ImgUrl: "https://agusmakmun.github.io/static/projects/placeholder.jpg",
-        title: "个人主页",
-        githubURL:"https:\\github.com",
-        tags:["blog","rem"],
-        createAt:"4 2016"
-    }
 ]
 
 class Project extends Component{

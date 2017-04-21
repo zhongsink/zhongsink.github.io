@@ -14,12 +14,13 @@ import 'rc-pagination/assets/index.css';
 
 export default class CellView extends Component {
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
             current:1,
         };
     }
+
     onChange(page){
         console.log(page,this.state);
         this.setState({

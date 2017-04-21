@@ -1,17 +1,14 @@
+import objectAssign from 'object-assign';
+import { RECEIVE_ITEMS } from "../constants/ActionType.js";
 
 function postIssues(defaultIssuesState, action) {
   switch (action.type) {
-    case FETCH_ISSUES:
-      // 获取issues
-      return objectAssign({}, defaultIssuesState, {
-        isFetching: true
-      });
 
-    case RECEIVE_ISSUES:
-      // 接收issues
+    case RECEIVE_ITEMS:
+      // 接收文章
       return objectAssign({}, defaultIssuesState, {
-        isFetching: false,
-        items: action.posts
+        // isFetching: false,
+        items: JSON.parse(action.payload.posts)
       });
 
     default:
