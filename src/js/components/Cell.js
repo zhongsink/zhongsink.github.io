@@ -7,7 +7,7 @@ export default class Cell extends Component {
     return (
       <li className="list-post">
         <span className="date-long">{this.props.created_at.substr(0, 10)}</span>
-        <Link to={"blog/post/"+this.props.hash} >{this.props.title}</Link>
+        <Link to={"/blog/post/"+this.props.hash} >{this.props.title}</Link>
       </li>
     );
   }

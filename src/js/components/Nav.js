@@ -10,7 +10,7 @@ class Item extends Component{
         let item=this.props.item;
         return (
             <li className="item">
-                <Link to={item.pathname}>{item.title}</Link>
+                <Link to={item.pathname!=="/" ?"/"+item.pathname:item.pathname }>{item.title}</Link>
             </li>
         )
     }

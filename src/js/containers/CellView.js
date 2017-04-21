@@ -1,31 +1,31 @@
-import React,{Component} from "react";
+import React, { Component } from "react";
 import CellView from "../components/CellView";
 import NProgress from 'nprogress';
 import { connect } from 'react-redux';
-// let array=[
-//     {
-//         title: '使用 npm 和 bower 发布插件',
-//         created_at: '2016-08-10T08:54:33Z',
-//         hash: "sds34"
-//     }]
-class View extends Component{
+let array = [
+    {
+        hash: "sds34",
+        title: '函数防抖与函数节流',
+        created_at: '2016-08-19T08:54:33Z'
+    }]
+class View extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-         if(!this.props.items){
-        const { dispatch } = this.props;
-        dispatch(getItems());
-      }
+        if (!this.props.items) {
+            const { dispatch } = this.props;
+            dispatch(getItems());
+        }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         NProgress.done();
     }
-    render(){
+    render() {
 
         return (
             <div className="Cellist">
-                <CellView items={this.props.items} />
+                <CellView items={this.props.items ? this.props.items : array} />
             </div>
         )
     }
@@ -33,15 +33,15 @@ class View extends Component{
 }
 //map
 function mapStateToProps(state) {
-  const { 
+    const {
     items
   } = state || {
-    items: []
-  };
+            items: []
+        };
 
-  return {
-    items
-  }
+    return {
+        items
+    }
 }
 
 export default connect(mapStateToProps)(View);

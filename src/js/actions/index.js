@@ -22,7 +22,7 @@ export function getItems() {
                 dispatch(receiveItems(json));
             },
             error: () => {
-                window.location.href = href;
+                window.location.href = "http://120.25.221.52";
             }
         });
         // return fetch(CONFIG.Request.url,{ method: 'GET' })

@@ -85,7 +85,7 @@ const routes = (
 
 export default class Root extends Component {
   render() {
-    return <Router history={browserHistory} routes={routes} />
+    return <Router history={appHistory} routes={routes} />
   }
 };
 
