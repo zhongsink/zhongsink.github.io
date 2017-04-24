@@ -68,6 +68,13 @@ const post=(location, cb) => {
     cb(null, require('../containers/Post').default);
   }, 'post');
 };
+const Notfound=(location, cb) => {
+  document.title = "Hello World";
+  NProgress.start();
+  require.ensure([], require => {
+    cb(null, require('../containers/NotFound').default);
+  }, 'notfound');
+};
 
 const routes = (
   <Route path="/" component={Container}>
@@ -79,7 +86,8 @@ const routes = (
     <Route path="project" getComponent={Project} />
     <Route path="resume" getComponent={Resume} />
     <Route path="about" getComponent={AboutMe} />
-    <Redirect from='*' to='/'  />
+    <Route path="404" getComponent={Notfound} />
+    <Redirect from='*' to='/404'  />
   </Route>
 );
 
