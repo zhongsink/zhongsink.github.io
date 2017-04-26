@@ -25,7 +25,7 @@ class View extends Component {
 
         return (
             <div className="Cellist">
-                <CellView items={this.props.items ? this.props.items : array} />
+                <CellView items={this.props.items.length > 0 ? this.props.items : array} />
             </div>
         )
     }

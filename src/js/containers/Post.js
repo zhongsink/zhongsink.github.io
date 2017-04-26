@@ -29,7 +29,7 @@ class Post extends Component {
   render() {
     let view = [];
     // this.props.items.map((item, index) => {
-    if(this.props.items){
+    if(this.props.items.length > 0){
       this.props.items.map((item, index) => {
         if (item.hash === this.props.params.id) {
           view = <Article {...item}  key={index} />;
