@@ -38,6 +38,6 @@ export const CONFIG =  {
         }
     ],
     Request:{
-        url:"//120.25.221.52/getItems"
+        url:"http://120.25.221.52/getItems"
     }
 }
