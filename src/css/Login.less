@@ -1,0 +1,144 @@
+@color:#8a8484;
+
+
+.flex-wrap{
+    /** 各种版本兼容**/
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+        /** 水平垂直居中**/
+.midCenter{
+    -moz-box-pack: center;
+    -webkit-box-pack: center;
+    box-pack:center;
+    -moz-box-align: center;
+    -webkit-box-align: center;
+    box-align: center;
+    -ms-flex-pack:center;
+    display: -ms-flexbox;
+    -ms-flex-align:center;
+    justify-content:center;
+    -webkit-align-items: center;
+    align-items: center; 
+}
+ .col-flex{
+     -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+     -moz-box-direction: normal;
+    -moz-box-lines: multiple;
+    -webkit-box-lines: multiple;
+    -webkit-flex-flow: column wrap;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+}
+.row{
+    
+    height: 400px;
+    .flex-wrap;
+    .midCenter;
+
+    .loginpanel{
+        &:hover {
+          box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.3), 0 0px 15px 0 rgba(0, 0, 0, 0.2);
+        }
+        text-align: center;
+        width: 300px;
+        border-radius: 0.5rem;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 10px auto;
+        padding: 20px;
+        background-color: @color;
+        .flex-wrap;
+        .col-flex;
+        h2{
+            display: block;
+            text-align: center;
+            font-size: 1.5rem;
+            -webkit-margin-before: 0.83em;
+            -webkit-margin-after: 0.83em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+            font-weight: bold;
+            color: #EFEFEF;
+        }
+        .loginform{
+            .flex-wrap;
+            .col-flex;
+            overflow: hidden;
+        }
+        input{
+            width: 100%;
+            margin-bottom: 17px;
+            padding: 15px;
+            background-color: #ECF4F4;
+            border-radius: 2px;
+            border: none;
+        }
+        .buttonwrapper {
+            position: relative;
+            overflow: hidden;
+            height: 50px;
+        }
+        .loginbutton{
+            &:hover{
+              background-color: #ed9c28;
+              border-color: #d58512;  
+            }
+            background-color: #f08000;
+            width: 100%;
+            position: absolute;
+            cursor: pointer;
+            -webkit-border-top-right-radius: 0;
+            -webkit-border-bottom-right-radius: 0;
+            -moz-border-radius-topright: 0;
+            -moz-border-radius-bottomright: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            left: 0px;
+            top: 0;
+        }
+        .btn{
+            display: inline-block;
+            color: #ECF4F4;
+            text-align: center;
+            height: 42px;
+            margin-bottom: 0;
+            font-weight: 400;
+            text-align: center;
+            vertical-align: middle;
+            background-image: none;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            font-size: 1rem;
+            line-height: 1.42857143;
+            border-radius: 4px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            img{
+                width:1.5rem;
+                height:auto;
+            }
+        }
+        .lockbutton {
+            font-size: 1rem;
+            color: #f96145;
+            background-color: transparent;
+            padding: 10px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 300px;
+            border: 2px solid #f96145;
+            border-radius: 2px;
+        }
+    }
+}

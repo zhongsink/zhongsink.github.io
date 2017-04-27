@@ -68,6 +68,12 @@ const post=(location, cb) => {
     cb(null, require('../containers/Post').default);
   }, 'post');
 };
+const Admin=(location, cb) => {
+  document.title = "Hello World";
+  require.ensure([], require => {
+    cb(null, require('../containers/Admin').default);
+  }, 'admin');
+};
 const Notfound=(location, cb) => {
   document.title = "Hello World";
   NProgress.start();
@@ -84,6 +90,7 @@ const routes = (
         <Route path="post/:id" getComponent={post} />
     </Route>
     <Route path="project" getComponent={Project} />
+    <Route path="admin" getComponent={Admin} />
     <Route path="resume" getComponent={Resume} />
     <Route path="about" getComponent={AboutMe} />
     <Route path="404" getComponent={Notfound} />
