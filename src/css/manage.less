@@ -1,0 +1,146 @@
+li{
+    list-style: none;
+}
+.manageCon{
+    
+    .manageHeader{
+        padding-top: 12px;
+        padding-bottom: 12px;
+        line-height: 40px;
+        color: rgba(255,255,255,0.75);
+        background-color: #24292e;
+        h2{
+            width: 25%;
+            padding-left: 10%;
+            font-size: 1.2rem;
+
+        }
+    }
+    .ReactTabs__TabList{
+        padding-top:10px;
+        background-color: #fff;
+        .ReactTabs__Tab{
+            font-size:1rem;
+            height:40px;
+            text-align:center;
+            line-height:40px; 
+            left:10%;
+        }
+    }
+    .ReactTabs__TabPanel{
+        width:80%;
+        margin: 0 auto;
+        h2{
+            font-size: 1rem;
+            padding: 10px 0;
+        }
+        .list-post{
+            padding: 0 5px;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #e5e5e5;
+            font-size: 14px;
+            overflow: hidden;
+            .date-long{
+                display: inline-block;
+                float: right;
+            }
+            a{
+                text-decoration: none;
+                font-size: 0.9rem;
+                color: #000;
+            }
+        }
+    }
+
+}
+.user{
+    &::before &::after {
+        content:"";
+        display:table;
+    }
+    float: right!important;
+    padding-right: 10%;
+    margin-top: -40px;
+    .dropdown{
+        position: relative;
+        display: inline-block;
+        .dropdown-toggle{
+            position: relative;
+            display: block;
+            cursor: pointer;
+            padding: 10px 15px;
+            opacity: 0.8;
+            &:hover{
+                opacity: 1;
+            }
+        }
+        img{
+            width: 20px;
+            height: auto;
+        }
+    }
+    .dropdown-menu{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        
+        min-width: 120px;
+        margin-top: -10px;
+        font-size: 14px;
+        text-align: left;
+        list-style: none;
+        background-color: #fff;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        border: 1px solid #ccc;
+        border: 1px solid rgba(0,0,0,.15);
+        border-radius: 4px;
+        -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        vertical-align: baseline;
+        padding:0 10px;
+        i{
+            padding-right: 5px;
+        }
+    }
+
+}
+
+//blogForm
+.blogForm , .ProjectForm{
+    .formitem{
+        margin-top:5px; 
+    }
+    .title{
+        font-size: 0.9rem;
+        padding:10px 0;
+        input{
+            width: 300px;
+            height:40px;
+            padding-left: 10px;
+            margin-right:10px; 
+            line-height: 40px;
+        }
+    }
+    .btnCon{
+        margin: 10px 0 20px 0;
+        width: 200px;
+    }
+    .btn{
+        display: inline-block;
+        color: #686868;
+        text-align: center;
+        width: 200px;
+        height: 42px;
+        font-weight: 400;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        font-size: 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+
+    }
+}

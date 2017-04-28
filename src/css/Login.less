@@ -41,6 +41,7 @@
     .flex-wrap;
     .midCenter;
 
+
     .loginpanel{
         &:hover {
           box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.3), 0 0px 15px 0 rgba(0, 0, 0, 0.2);
@@ -101,7 +102,7 @@
             -moz-border-radius-bottomright: 0;
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
-            left: 0px;
+            left: -300px;
             top: 0;
         }
         .btn{
@@ -123,6 +124,10 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            transition: left .5s;
+            -moz-transition: left .5s; /* Firefox 4 */
+            -webkit-transition: left .5s; /* Safari 和 Chrome */
+            -o-transition: left .5s;
             img{
                 width:1.5rem;
                 height:auto;
@@ -136,9 +141,60 @@
             width: 100%;
             position: absolute;
             top: 0;
-            left: 300px;
+            left: 0px;
             border: 2px solid #f96145;
             border-radius: 2px;
         }
     }
+}
+.loading{
+    position: relative;
+    text-align: center;
+    transition: all .5s;
+    -moz-transition: all .5s; /* Firefox 4 */
+    -webkit-transition: all .5s; /* Safari 和 Chrome */
+    -o-transition: all .5s;
+    height: 50px;
+}
+.ball{
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #f96145;
+  border-radius: 50%;
+  left :48%;
+  transform-origin: 5px 25px;
+  transform: rotate(0deg);
+  animation: roll 2s ease-out infinite;
+}
+.ball1{
+  animation-delay:0.2s
+}
+.ball2{
+  animation-delay:0.4s
+}
+.ball3{
+  animation-delay:0.6s
+}
+
+@keyframes roll{
+  0% {
+    transform: rotate(0deg);
+    opacity:0;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity:1;
+  }
+}
+
+.hidden p{
+    color: #f96145;
+    background-color:@color;
+    height: 15px;
+    border-radius: 5px;
+    transition: all .5s;
+    -moz-transition: all .5s; /* Firefox 4 */
+    -webkit-transition: all .5s; /* Safari 和 Chrome */
+    -o-transition: all .5s;
 }
