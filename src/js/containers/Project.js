@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import FixSlide from "../components/FixSlide"
 import FigureCon from "../components/FigureCon";
 import NProgress from 'nprogress';
-const items = [
+import { connect } from 'react-redux';
+const arrays = [
     {
         user: "admin",
         url: "https://zhongsink.github.io",
@@ -23,7 +24,8 @@ class Project extends Component {
         NProgress.done();
     }
     render() {
-
+        const items = this.props.projectitems && this.props.projectitems.length > 0 ? this.props.projectitems : arrays;
+        //console.log(this.props.projectitems);
         return (
             <div className="flex row-flex">
                 <FixSlide />
@@ -46,4 +48,17 @@ class Project extends Component {
     }
 
 }
-export default Project;
+
+function mapStateToProps(state) {
+    const {
+    projectitems
+  } = state || {
+            projectitems: []
+        };
+
+    return {
+        projectitems
+    }
+}
+
+export default connect(mapStateToProps)(Project);

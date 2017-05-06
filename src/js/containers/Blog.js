@@ -5,14 +5,10 @@ class Blog extends Component{
 
     constructor(props){
         super(props);
-         if(!this.props.items){
-            const { dispatch } = this.props;
-            dispatch(getItems());
-        }
     }
 
     render(){
-        console.log(this.props.items)
+        // console.log(this.props.items)
         return (
             <div className="flex row-flex">
                 <FixSlide />

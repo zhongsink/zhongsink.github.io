@@ -6,7 +6,7 @@ import configureStore from './store/configureStore.js';
 import Root from './containers/Root';
 import '../css/root.less';
 
-let store = configureStore();
+let store = configureStore({user:"admin",login:false});
 
 render(
  <Provider store={store}>

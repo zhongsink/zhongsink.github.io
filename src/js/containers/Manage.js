@@ -6,13 +6,13 @@ import BlogForm from "../components/BlogForm";
 import ProjectForm from "../components/ProjectForm";
 
 import "../../css/manage.less";
-let items = [
+let item = [
     {
         hash: "sds34",
         title: '函数防抖与函数节流',
         created_at: '2016-08-19T08:54:33Z'
     }];
-const arrays = [
+const array = [
     {
         user: "admin",
         url: "https://zhongsink.github.io",
@@ -23,6 +23,24 @@ const arrays = [
         createAt: "2017-4-15"
     },
 ]
+
+Date.prototype.Format = function(fmt)   {   
+  var o = {   
+    "M+" : this.getMonth()+1,                 //月份   
+    "d+" : this.getDate(),                    //日   
+    "h+" : this.getHours(),                   //小时   
+    "m+" : this.getMinutes(),                 //分   
+    "s+" : this.getSeconds(),                 //秒   
+    "q+" : Math.floor((this.getMonth()+3)/3), //季度   
+    "S"  : this.getMilliseconds()             //毫秒   
+  };   
+  if(/(y+)/.test(fmt))   
+    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));   
+  for(var k in o)   
+    if(new RegExp("("+ k +")").test(fmt))   
+  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));   
+  return fmt;   
+}  
 
 class Manage extends Component {
 
@@ -36,7 +54,8 @@ class Manage extends Component {
         this.setState({ show: !this.state.show });
     }
     render() {
-
+        let items = this.props.items && this.props.items.length >0 ? this.props.items : item; 
+        let arrays = this.props.projectitems && this.props.projectitems.length >0 ? this.props.projectitems :array;
         return (
             <div className="manageCon">
                 <div className="manageHeader">

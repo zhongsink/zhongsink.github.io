@@ -25,8 +25,8 @@ class LoginForm extends Component {
         this.state = {
             username: null,
             password: null,
-            send:false,
-            error:false
+            send: false,
+            error: this.props.error
         }
     }
     check() {
@@ -35,20 +35,20 @@ class LoginForm extends Component {
         else return false;
     }
     changeUserName(event) {
-        this.setState({ username: event.target.value,error:false });
+        this.setState({ username: event.target.value ,send: false});
+        this.props.changeError();
     }
     changePassword(event) {
-        this.setState({ password: event.target.value,error:false });
+        this.setState({ password: event.target.value,send: false });
+        this.props.changeError();
     }
     sendForm() {
-        console.log(this.state);
+        // console.log(this.state);
         this.setState({ send: true });
-        
-        const timer=setInterval(()=>{
-            // this.setState({ password:null,send: false,error:true });
-            this.props.signIn();
-            clearInterval(timer);
-        },1000);
+        const formdata = new FormData();
+        formdata.append("user", this.state.username);
+        formdata.append("password", this.state.password);
+        this.props.signIn("user="+this.state.username+"&password="+this.state.password);
     }
     render() {
 
@@ -56,8 +56,8 @@ class LoginForm extends Component {
             <div className="row">
                 <div className="loginpanel">
                     <div className="hidden">
-                        { this.state.send ? <Loading />:""}
-                        {this.state.error ? <p>用户名或密码错误</p>:""}
+                        {this.state.send ? <Loading /> : ""}
+                        {this.state.error ? <p>用户名或密码错误</p> : ""}
                     </div>
                     <h2>
                         <span className="fa fa-quote-left "></span> 登录 <span className="fa fa-quote-right "></span>

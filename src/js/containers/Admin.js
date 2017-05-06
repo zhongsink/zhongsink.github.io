@@ -1,23 +1,53 @@
-import React,{Component} from "react";
+import React, { Component } from "react";
 import LoginForm from "../components/LoginForm"
 import Manage from "./Manage";
+import { signIn } from "../actions/index.js";
+import fetch from "node-fetch";
+import { connect } from 'react-redux';
+import { CONFIG } from "../constants/Config.js";
+
 class Admin extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
-        this.state={
-            login:false
+        this.state = {
+            login: this.props.login,
+            error: false ,
         }
     }
-    signIn(){
-        this.setState({login:!this.login});
+    userSignIn(obj) {
+        //  const { dispatch } = this.props;
+        //  dispatch(signIn(obj));
+        // this.setState({ login: !this.state.login });
+        const self=this;
+        fetch(CONFIG.Request.url + "signin", {
+            method: "POST",
+            // mode:'cors',
+            headers: {
+                //  "Access-Control-Allow-Origin":"*",
+                 "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: obj
+        }).then(function (res) {
+            return res.json();
+        }).then(function (json) {
+            if(JSON.parse(json).success)
+                self.setState({ login: !self.state.login });
+            else{
+                self.setState({ error: !self.state.error });
+            }
+        });
+         
     }
-    render(){
+    changeError(){
+        this.setState({ error: !this.state.error });
+    }
+    render() {
 
         return (
             <div>
-                { this.state.login ? <Manage /> : <LoginForm signIn={this.signIn.bind(this)} /> } 
+                {this.state.login ? <Manage  items={this.props.items} projectitems={this.props.projectitems} /> : <LoginForm signIn={this.userSignIn.bind(this)} changeError={this.changeError.bind(this)} error={this.state.error} />}
             </div>
         )
     }
@@ -25,6 +55,26 @@ class Admin extends Component {
 
 }
 
+function mapStateToProps(state) {
+    const {
+        user,
+        items,
+        projectitems,
+        login
 
+  } = state || {
+            user: "admin",
+            items: [],
+            projectitems:[],
+            login:false
+        };
 
-export default Admin;
+    return {
+        user,
+        items,
+        projectitems,
+        login
+    }
+}
+
+export default connect(mapStateToProps)(Admin);

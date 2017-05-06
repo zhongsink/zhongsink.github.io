@@ -12,7 +12,7 @@ export default class Marked extends Component{
     }
     updateMarkdown(event){
         this.setState({mark:event.target.value});
-        console.log(this.state.mark);
+        this.props.change(event);
     }
     render(){
 

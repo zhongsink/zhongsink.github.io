@@ -38,6 +38,7 @@ export const CONFIG =  {
         }
     ],
     Request:{
-        url:"http://120.25.221.52/getItems"
+        url:"http://localhost:3000/"
+        // url:"http://www.inkera.cn/"
     }
 }
