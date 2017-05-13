@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import CellView from "../components/CellView";
 import NProgress from 'nprogress';
 import { connect } from 'react-redux';
+
+const localItem=JSON.parse(localStorage.getItem("Items")).reverse();
 let array = [
     {
         hash: "sds34",
@@ -22,10 +24,9 @@ class View extends Component {
         NProgress.done();
     }
     render() {
-
         return (
             <div className="Cellist">
-                <CellView items={ this.props.items && this.props.items.length > 0 ? this.props.items : array} />
+                <CellView items={ this.props.items && this.props.items.length > 0 ? this.props.items : localItem || array} />
             </div>
         )
     }
@@ -35,7 +36,7 @@ class View extends Component {
 function mapStateToProps(state) {
     const {
     items
-  } = state || {
+  } = state ||  {
             items: []
         };
 

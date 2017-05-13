@@ -5,6 +5,9 @@ import { signIn } from "../actions/index.js";
 import fetch from "node-fetch";
 import { connect } from 'react-redux';
 import { CONFIG } from "../constants/Config.js";
+const localprojectItems=JSON.parse(localStorage.getItem("projectItems")).reverse();
+const localItem=JSON.parse(localStorage.getItem("Items")).reverse();
+const localLogin=localStorage.getItem("login");
 
 class Admin extends Component {
 
@@ -32,8 +35,10 @@ class Admin extends Component {
         }).then(function (res) {
             return res.json();
         }).then(function (json) {
-            if(JSON.parse(json).success)
+            if(JSON.parse(json).success){
                 self.setState({ login: !self.state.login });
+                localStorage.setItem("login",true);
+            }
             else{
                 self.setState({ error: !self.state.error });
             }
@@ -47,7 +52,7 @@ class Admin extends Component {
 
         return (
             <div>
-                {this.state.login ? <Manage  items={this.props.items} projectitems={this.props.projectitems} /> : <LoginForm signIn={this.userSignIn.bind(this)} changeError={this.changeError.bind(this)} error={this.state.error} />}
+                {localLogin||this.state.login ? <Manage  items={localItem || this.props.items} projectitems={localprojectItems ||this.props.projectitems} /> : <LoginForm signIn={this.userSignIn.bind(this)} changeError={this.changeError.bind(this)} error={this.state.error} />}
             </div>
         )
     }
@@ -64,8 +69,8 @@ function mapStateToProps(state) {
 
   } = state || {
             user: "admin",
-            items: [],
-            projectitems:[],
+            items: localItem || [],
+            projectitems:localprojectItems||[],
             login:false
         };
 

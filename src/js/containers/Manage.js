@@ -68,10 +68,10 @@ class Manage extends Component {
                             </a>
                             <ul className="dropdown-menu dropdown-user " style={{ display: this.state.show ? "" : "none" }}>
                                 <li>
-                                    <a href="#"><i className="fa fa-user fa-fw"><img src={require("../../img/user.svg")} alt="" /></i>用户信息</a>
+                                    <a href="/" ><i className="fa fa-user fa-fw"><img src={require("../../img/user.svg")} alt="" /></i>用户信息</a>
                                 </li>
                                 <li>
-                                    <a href="/"><i className="fa fa-sign-out fa-fw"><img src={require("../../img/loginout.svg")} alt="" /></i>登出</a>
+                                    <a href="/#/admin" onClick={()=>{localStorage.removeItem("login");location.reload(true)}}><i className="fa fa-sign-out fa-fw"><img src={require("../../img/loginout.svg")} alt="" /></i>登出</a>
                                 </li>
                             </ul>
                         </li>

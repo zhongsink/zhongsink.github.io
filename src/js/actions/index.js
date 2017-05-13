@@ -35,6 +35,7 @@ export function getItems() {
         $.ajax({
             url: CONFIG.Request.url + "getItems",
             success: json => {
+                localStorage.setItem("Items",json);
                 dispatch(receiveItems(json));
             },
             error: () => {
@@ -57,6 +58,7 @@ export function getItems() {
         $.ajax({
             url: CONFIG.Request.url + "getProjectItem",
             success: json => {
+                localStorage.setItem("projectItems",json);
                 dispatch(receiveProjectItems(json));
             },
             error: () => {

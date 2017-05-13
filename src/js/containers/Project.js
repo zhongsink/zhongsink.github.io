@@ -3,6 +3,9 @@ import FixSlide from "../components/FixSlide"
 import FigureCon from "../components/FigureCon";
 import NProgress from 'nprogress';
 import { connect } from 'react-redux';
+
+const localprojectItems=JSON.parse(localStorage.getItem("projectItems")).reverse();
+
 const arrays = [
     {
         user: "admin",
@@ -24,7 +27,7 @@ class Project extends Component {
         NProgress.done();
     }
     render() {
-        const items = this.props.projectitems && this.props.projectitems.length > 0 ? this.props.projectitems : arrays;
+        const items = this.props.projectitems && this.props.projectitems.length > 0 ? this.props.projectitems : localprojectItems||arrays;
         //console.log(this.props.projectitems);
         return (
             <div className="flex row-flex">
